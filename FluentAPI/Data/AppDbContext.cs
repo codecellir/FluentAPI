@@ -12,10 +12,7 @@ namespace FluentAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Student>().ToTable("STD");
-
-            modelBuilder.Entity<Student>().Property(x => x.Name)
-                .HasMaxLength(150);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }
     }
 
