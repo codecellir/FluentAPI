@@ -10,9 +10,8 @@
         public int Age { get; set; }
         public float Score { get; set; }
         public bool Active { get; set; }
-
         public string CourseName { get; set; }
-
         public string Test { get; }
+        public virtual Profile Profile { get; set; }
     }
 }

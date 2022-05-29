@@ -34,10 +34,9 @@ namespace FluentAPI.Mapping
                 .HasComputedColumnSql("[Name]+' '+[LastName]");
 
             builder.Property(x => x.Age)
-                .HasDefaultValue(10);
-
-            builder.Property(x => x.Age)
+                .HasDefaultValue(10)
                 .HasColumnType("tinyint");
+                
 
             builder.Property(x => x.Score)
                 .HasColumnType("float");
@@ -45,6 +44,11 @@ namespace FluentAPI.Mapping
             builder.HasQueryFilter(x => x.Active);
 
             builder.Ignore(x => x.CourseName);
+
+            builder.HasOne(x=>x.Profile)
+                .WithOne(x=>x.Student)
+                .HasForeignKey<Profile>(x=>x.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
