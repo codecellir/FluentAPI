@@ -12,6 +12,8 @@
         public bool Active { get; set; }
         public string CourseName { get; set; }
         public string Test { get; }
+        public int GradeId { get; set; }
         public virtual Profile Profile { get; set; }
+        public virtual Grade Grade { get; set; }
     }
 }

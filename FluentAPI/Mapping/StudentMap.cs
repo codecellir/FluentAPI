@@ -49,6 +49,11 @@ namespace FluentAPI.Mapping
                 .WithOne(x=>x.Student)
                 .HasForeignKey<Profile>(x=>x.StudentId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.Grade)
+                .WithMany(x => x.Students)
+                .HasForeignKey(x => x.GradeId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
