@@ -15,5 +15,6 @@
         public int GradeId { get; set; }
         public virtual Profile Profile { get; set; }
         public virtual Grade Grade { get; set; }
+        public virtual ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }
