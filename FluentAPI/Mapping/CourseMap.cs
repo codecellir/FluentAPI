@@ -15,6 +15,14 @@ namespace FluentAPI.Mapping
             builder.Property(x => x.Name)
                 .HasMaxLength(50)
                 .IsRequired();
+
+            builder.Property(x => x.PreCourseId)
+                .IsRequired(false);
+
+            builder.HasOne(x => x.PreCourse)
+                .WithMany()
+                .HasForeignKey(x => x.PreCourseId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
